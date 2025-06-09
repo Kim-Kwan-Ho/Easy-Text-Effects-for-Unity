@@ -122,7 +122,7 @@ namespace EasyTextEffects
             var results = new List<TextEffectEntry>();
             var effects = _effectName.Split('|');
             if (effects.Length <= 1)
-                return;
+                return null;
                 
             var effectNames = effects[1].Split('+');
             
