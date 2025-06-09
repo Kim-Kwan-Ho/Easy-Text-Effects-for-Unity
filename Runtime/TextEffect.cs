@@ -120,8 +120,12 @@ namespace EasyTextEffects
         private List<TextEffectEntry> GetTagEffectsByName(string _effectName)
         {
             var results = new List<TextEffectEntry>();
-            var effectNames = _effectName.Split('+');
-
+            var effects = _effectName.Split('|');
+            if (effects.Length <= 1)
+                return;
+                
+            var effectNames = effects[1].Split('+');
+            
             foreach (var effectName in effectNames)
             {
                 var findAll = allTagEffects_.FindAll(_entry => _entry.effect?.effectTag == effectName);
